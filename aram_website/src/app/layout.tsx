@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${notoTamil.variable} antialiased`}
     >
-      <body className="flex min-h-screen flex-col bg-gradient-to-br from-white via-sky-50 to-sky-200 bg-fixed">
+      <body className="flex min-h-screen flex-col bg-gradient-to-br from-white via-sky-50 to-sky-200">
         <Navbar />
         {children}
       </body>
