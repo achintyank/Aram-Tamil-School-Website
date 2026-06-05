@@ -144,22 +144,28 @@ export default async function AnnouncementsPage() {
 
   return (
     <section className="flex w-full flex-col px-6 pt-28 pb-20 sm:px-12 sm:pt-32 md:px-20 md:pt-36 lg:px-28 lg:pt-40">
-      <header className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
+      <header className="mx-auto flex w-full max-w-4xl animate-[page-fade-up_700ms_ease-out_both] flex-col items-center text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-700/80 sm:text-sm">
           {active.length === 0
             ? "Nothing right now"
             : `${active.length} active`}
         </p>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-          Announcements
+        <h1
+          lang="ta"
+          className="mt-3 font-[family-name:var(--font-tamil)] text-4xl font-bold leading-[1.3] tracking-tight text-slate-900 sm:text-5xl md:text-6xl"
+        >
+          அறிவிப்புகள்
         </h1>
+        <p className="mt-2 text-xl font-medium tracking-wide text-sky-700 sm:text-2xl md:text-3xl">
+          Announcements
+        </p>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
           Updates from the school — celebrations, schedule changes, reminders.
         </p>
         <AnnouncementsRefresh serverTime={Date.now()} />
       </header>
 
-      <div className="mx-auto mt-12 w-full max-w-3xl">
+      <div className="mx-auto mt-12 w-full max-w-3xl animate-[page-fade-up_900ms_ease-out_250ms_both]">
         {active.length === 0 ? (
           <div className="rounded-2xl border-2 border-dashed border-sky-300/70 bg-white/50 p-10 text-center backdrop-blur-sm">
             <p className="text-base font-semibold text-slate-700">
@@ -234,7 +240,7 @@ export default async function AnnouncementsPage() {
       </div>
 
       {past.length > 0 && (
-        <div className="mx-auto mt-20 w-full max-w-3xl">
+        <div className="mx-auto mt-20 w-full max-w-3xl animate-[page-fade-up_900ms_ease-out_450ms_both]">
           <div className="mb-5 flex items-baseline justify-between gap-3">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
               Past Announcements
