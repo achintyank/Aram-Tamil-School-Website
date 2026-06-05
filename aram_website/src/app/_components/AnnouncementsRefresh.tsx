@@ -18,9 +18,17 @@ export default function AnnouncementsRefresh({
   useEffect(() => {
     const init = () => {
       const now = Date.now();
+      const stored = parseInt(
+        window.localStorage.getItem(STORAGE_KEY) ?? "0",
+        10,
+      );
       const serverNext = serverTime + INTERVAL_SECONDS * 1000;
-      window.localStorage.setItem(STORAGE_KEY, String(serverNext));
-      setRemaining(Math.max(0, Math.ceil((serverNext - now) / 1000)));
+      // Use stored value if it's still in the future AND earlier than server's.
+      // Otherwise fall back to serverNext.
+      const next =
+        stored > now && stored <= serverNext ? stored : serverNext;
+      window.localStorage.setItem(STORAGE_KEY, String(next));
+      setRemaining(Math.max(0, Math.ceil((next - now) / 1000)));
     };
     init();
 
