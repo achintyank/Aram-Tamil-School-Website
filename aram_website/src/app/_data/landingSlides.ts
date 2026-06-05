@@ -5,12 +5,13 @@ import type { SlideEntry } from "../_components/Slideshow";
 // the reveal animation once on mount and sits static after.
 
 export const topLeftSlides: SlideEntry[] = [
-  { kind: "color", gradient: "from-amber-200 to-rose-300" },
+  { kind: "image", src: "/landing_page/surya_violin.jpeg", alt: "" },
 ];
 
 export const bottomSlides: SlideEntry[] = [
-  { kind: "image", src: "/landing_page/IMG_2468.jpeg", alt: "" },
+  { kind: "image", src: "/landing_page/second_paatu_ppl.jpeg", alt: "" },
   { kind: "image", src: "/landing_page/hscp4_co25.jpeg", alt: "" },
+  { kind: "image", src: "/landing_page/hscp4_co25_onstage_after_performance.jpeg", alt: "" },
 ];
 
 export const rightSlides: SlideEntry[] = [

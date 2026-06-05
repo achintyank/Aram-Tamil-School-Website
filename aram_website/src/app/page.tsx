@@ -34,14 +34,14 @@ export default function Home() {
 
         <div className="absolute bottom-16 right-16 z-10 hidden md:block lg:bottom-24 lg:right-32 xl:bottom-32 xl:right-48">
           <div className="relative h-56 w-72 lg:h-72 lg:w-[26rem] xl:h-[22rem] xl:w-[32rem]">
-            <div className="absolute left-25 -top-39 h-42 w-32 overflow-hidden rounded-2xl bg-gradient-to-br from-white/70 to-slate-200/60 shadow-xl ring-1 ring-white/60 backdrop-blur-sm lg:-top-33 lg:h-52 lg:w-44 xl:-top-25 xl:h-60 xl:w-52">
-              <Slideshow slides={topLeftSlides} variant="wipe-y" />
+            <div className="absolute left-25 -top-39 h-42 w-32 overflow-hidden rounded-2xl [clip-path:inset(0_round_1rem)] lg:-top-33 lg:h-52 lg:w-44 xl:-top-25 xl:h-60 xl:w-52">
+              <Slideshow slides={topLeftSlides} variant="pan-zoom-y" />
             </div>
             <div className="absolute bottom-0 -left-4 right-50 h-32 overflow-hidden rounded-2xl [clip-path:inset(0_round_1rem)] lg:-left-6 lg:h-40 xl:-left-8 xl:h-48">
               <Slideshow slides={bottomSlides} variant="pan-zoom" />
             </div>
-            <div className="absolute -right-15 bottom-8 h-48 w-44 overflow-hidden rounded-2xl bg-gradient-to-br from-white/70 to-slate-200/60 shadow-xl ring-1 ring-white/60 backdrop-blur-sm lg:bottom-10 lg:h-60 lg:w-52 xl:bottom-12 xl:h-[21rem] xl:w-60">
-              <Slideshow slides={rightSlides} variant="zoom" />
+            <div className="absolute -right-15 bottom-8 h-48 w-44 overflow-hidden rounded-2xl [clip-path:inset(0_round_1rem)] lg:bottom-10 lg:h-60 lg:w-52 xl:bottom-12 xl:h-[21rem] xl:w-60">
+              <Slideshow slides={rightSlides} variant="pan-zoom-y-down" />
             </div>
           </div>
         </div>

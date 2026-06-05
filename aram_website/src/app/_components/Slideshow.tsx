@@ -7,13 +7,21 @@ export type SlideEntry =
   | { kind: "image"; src: string; alt?: string }
   | { kind: "color"; gradient: string };
 
-type Variant = "wipe-x" | "wipe-y" | "zoom" | "pan-zoom";
+type Variant =
+  | "wipe-x"
+  | "wipe-y"
+  | "zoom"
+  | "pan-zoom"
+  | "pan-zoom-y"
+  | "pan-zoom-y-down";
 
 const animations: Record<Variant, string> = {
   "wipe-x": "animate-[wipe-x_2200ms_ease-out_forwards]",
   "wipe-y": "animate-[wipe-y_2200ms_ease-out_forwards]",
   zoom: "animate-[zoom-out_2500ms_ease-out_forwards]",
   "pan-zoom": "animate-[pan-zoom_5500ms_ease-in-out_forwards]",
+  "pan-zoom-y": "animate-[panzoomy_5500ms_ease-in-out_forwards]",
+  "pan-zoom-y-down": "animate-[panzoomydown_5500ms_ease-in-out_forwards]",
 };
 
 type Props = {

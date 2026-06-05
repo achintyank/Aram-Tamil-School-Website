@@ -16,8 +16,8 @@ export type CalendarEvent = {
 
 // --- School year boundaries -------------------------------------------------
 
-export const SCHOOL_YEAR_START = "2026-01-01";
-export const SCHOOL_YEAR_END = "2026-12-31";
+export const SCHOOL_YEAR_START = "2026-08-01";
+export const SCHOOL_YEAR_END = "2027-04-11";
 
 export const SCHOOL_DESCRIPTION = "Tamil class for all grade levels.";
 
@@ -58,12 +58,7 @@ export const holidays: {
   description: string;
 }[] = [
   {
-    dates: generateSundays(2026, 3, 19, 2026, 7, 16),
-    title: "Summer Break",
-    description: "No classes — summer break.",
-  },
-  {
-    dates: ["2026-12-27"],
+    dates: ["2026-12-27", "2027-01-03"],
     title: "Winter Break",
     description: "No classes — winter holiday break.",
   },
@@ -78,14 +73,14 @@ export const celebrations: {
   description: string;
 }[] = [
   {
-    date: "2026-01-11",
-    title: "Pongal Celebration",
-    description: "Pongal harvest festival with cultural performances.",
-  },
-  {
     date: "2026-11-08",
     title: "Diwali Celebration",
     description: "Festival of lights with cultural programs.",
+  },
+  {
+    date: "2027-01-17",
+    title: "Pongal Celebration",
+    description: "Pongal harvest festival with cultural performances.",
   },
 ];
 
@@ -100,11 +95,16 @@ export const onlineDays: string[] = [
 // Standalone events. Can be any day of the week.
 
 export const annualDay: { date: string; description: string } = {
-  date: "2026-04-18",
+  date: "2027-04-17",
   description: "Student performances, dances, music, and skits.",
 };
 
 export const graduation: { date: string; description: string } = {
-  date: "2026-04-25",
+  date: "2027-04-24",
   description: "Graduation ceremony for graduating students.",
+};
+
+export const summerBreak: { date: string; description: string } = {
+  date: "2027-05-31",
+  description: "Have a wonderful summer! See you next year.",
 };

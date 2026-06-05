@@ -10,11 +10,16 @@ import {
   SCHOOL_DESCRIPTION,
   SCHOOL_YEAR_END,
   SCHOOL_YEAR_START,
+  summerBreak,
   type CalendarEvent,
   type EventType,
 } from "../_data/events";
 
-const SCHOOL_YEAR = new Date(`${SCHOOL_YEAR_START}T00:00:00`).getFullYear();
+const SCHOOL_YEAR = (() => {
+  const startYear = new Date(`${SCHOOL_YEAR_START}T00:00:00`).getFullYear();
+  const endYear = new Date(`${SCHOOL_YEAR_END}T00:00:00`).getFullYear();
+  return startYear === endYear ? String(startYear) : `${startYear} – ${endYear}`;
+})();
 
 function pad(n: number) {
   return String(n).padStart(2, "0");
@@ -96,7 +101,7 @@ export default function Calendar() {
 
   return (
     <section className="flex min-h-screen w-full flex-col px-6 pt-20 pb-8 sm:px-10 md:px-14 lg:px-16">
-      <header className="mx-auto mb-1 flex w-full max-w-6xl shrink-0 flex-col items-center text-center">
+      <header className="mx-auto mb-1 flex w-full max-w-6xl shrink-0 animate-[page-fade-up_700ms_ease-out_both] flex-col items-center text-center">
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
           Annual Calendar
         </h1>
@@ -116,7 +121,7 @@ export default function Calendar() {
         </ul>
       </header>
 
-      <div className="mt-8 -mb-3 text-center">
+      <div className="mt-8 -mb-3 animate-[page-fade-up_700ms_ease-out_200ms_both] text-center">
         <p className="text-xl font-bold uppercase tracking-[0.35em] text-sky-700 sm:text-2xl md:text-3xl">
           {SCHOOL_YEAR}
         </p>
@@ -124,7 +129,7 @@ export default function Calendar() {
 
       <div
         ref={scrollRef}
-        className="relative w-full flex-1 overflow-x-auto overflow-y-hidden"
+        className="relative w-full flex-1 animate-[page-fade-up_900ms_ease-out_400ms_both] overflow-x-auto overflow-y-hidden"
       >
         <div className="relative h-[36rem] min-w-max sm:h-[30rem]">
           <div className="absolute inset-x-0 top-1/2 h-px bg-slate-300/70" />
@@ -337,6 +342,12 @@ function buildTimeline(): CalendarEvent[] {
     type: "graduation",
     title: "Graduation",
     description: graduation.description,
+  });
+  result.push({
+    date: summerBreak.date,
+    type: "leave",
+    title: "Summer Break!",
+    description: summerBreak.description,
   });
 
   result.sort((a, b) => a.date.localeCompare(b.date));
