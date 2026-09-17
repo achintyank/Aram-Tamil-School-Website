@@ -72,16 +72,16 @@ export const hscpFeatures = [
 export const SYLLABUS_READY = false;
 
 export const regularLevels = [
-  { letter: "அ", label: "TK", group: "Early foundations", file: "tk" },
-  { letter: "ஆ", label: "K", group: "Early foundations", file: "k" },
-  { letter: "இ", label: "Grade 1", group: "Elementary literacy", file: "grade-1" },
-  { letter: "ஈ", label: "Grade 2", group: "Elementary literacy", file: "grade-2" },
-  { letter: "உ", label: "Grade 3", group: "Elementary literacy", file: "grade-3" },
-  { letter: "ஊ", label: "Grade 4", group: "Elementary literacy", file: "grade-4" },
-  { letter: "எ", label: "Grade 5", group: "Elementary literacy", file: "grade-5" },
-  { letter: "ஏ", label: "Grade 6", group: "Middle-school fluency", file: "grade-6" },
-  { letter: "ஐ", label: "Grade 7", group: "Middle-school fluency", file: "grade-7" },
-  { letter: "ஒ", label: "Grade 8", group: "Middle-school fluency", file: "grade-8" },
+  { label: "TK", group: "Early foundations", file: "tk" },
+  { label: "K", group: "Early foundations", file: "k" },
+  { label: "Grade 1", group: "Elementary literacy", file: "grade-1" },
+  { label: "Grade 2", group: "Elementary literacy", file: "grade-2" },
+  { label: "Grade 3", group: "Elementary literacy", file: "grade-3" },
+  { label: "Grade 4", group: "Elementary literacy", file: "grade-4" },
+  { label: "Grade 5", group: "Elementary literacy", file: "grade-5" },
+  { label: "Grade 6", group: "Middle-school fluency", file: "grade-6" },
+  { label: "Grade 7", group: "Middle-school fluency", file: "grade-7" },
+  { label: "Grade 8", group: "Middle-school fluency", file: "grade-8" },
 ];
 
 export const hscpLevels = [

@@ -4,22 +4,10 @@ import {
   hscpLevels,
   programStats,
   regularFeatures,
-  regularLevels,
-  SYLLABUS_READY,
 } from "../_data/school";
+import GradeSteps from "./GradeSteps";
 import Highlight from "./Highlight";
-
-function SyllabusTag({ file }: { file: string }) {
-  if (!SYLLABUS_READY) return <span className="eyebrow opacity-50">Syllabus soon</span>;
-  return (
-    <a href={`/syllabus/${file}.pdf`} download className="eyebrow inline-flex items-center gap-1.5 underline decoration-2 underline-offset-4">
-      <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden fill="none" stroke="currentColor" strokeWidth="2.5">
-        <path d="M12 3v12m-5-5 5 5 5-5M4 21h16" />
-      </svg>
-      Syllabus
-    </a>
-  );
-}
+import SyllabusTag from "./SyllabusTag";
 
 function Features({ items }: { items: { title: string; body: string }[] }) {
   return (
@@ -46,7 +34,7 @@ function TrackHeader({ tag, title, body }: { tag: string; title: string; body: s
   );
 }
 
-/** Lando's helmet hall of fame → program structure, one letter card per class. */
+/** Lando's helmet hall of fame → program structure, one card per class. */
 export default function Structure() {
   return (
     <section id="structure" className="relative z-10 rounded-[2rem] bg-moss px-4 py-24 text-paper sm:px-6">
@@ -92,29 +80,7 @@ export default function Structure() {
           title="TK – Grade 8"
           body="Carefully sequenced classes that grow with the child — from the alphabet in TK to conversational fluency by the end of middle school."
         />
-        <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-          {regularLevels.map((l, i) => (
-            <li key={l.label}>
-              <div className="group flex h-full min-h-52 flex-col justify-between rounded-2xl bg-moss-2 p-4 transition-colors duration-300 hover:bg-blue">
-                <div className="flex justify-between gap-2">
-                  <p className="eyebrow text-paper/60">{l.group}</p>
-                  <p className="eyebrow opacity-60">{String(i + 1).padStart(2, "0")}</p>
-                </div>
-                <p
-                  lang="ta"
-                  aria-hidden
-                  className="self-center font-tamil text-7xl leading-none font-extrabold transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:-rotate-6"
-                >
-                  {l.letter}
-                </p>
-                <div className="flex items-end justify-between gap-2">
-                  <p className="text-xl font-extrabold uppercase">{l.label}</p>
-                  <SyllabusTag file={l.file} />
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <GradeSteps />
         <Features items={regularFeatures} />
       </div>
 
