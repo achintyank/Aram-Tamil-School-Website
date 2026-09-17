@@ -1,37 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Noto_Sans_Tamil } from "next/font/google";
+import { Anek_Tamil, Anton, Mona_Sans, Noto_Sans_Tamil } from "next/font/google";
 import "./globals.css";
-import Navbar from "./_components/Navbar";
+import SmoothScroll from "./_components/SmoothScroll";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const mona = Mona_Sans({ variable: "--font-mona", subsets: ["latin"] });
+
+const anton = Anton({ variable: "--font-anton", subsets: ["latin"], weight: "400" });
+
+const anekTamil = Anek_Tamil({
+  variable: "--font-anek-tamil",
+  subsets: ["tamil", "latin"],
+  weight: ["400", "600", "800"],
 });
 
 const notoTamil = Noto_Sans_Tamil({
   variable: "--font-noto-tamil",
-  subsets: ["tamil", "latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["tamil"],
+  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Aram Tamil School | California Tamil Academy",
+  title: "Aram Tamil School — அறம் தமிழ்ப் பள்ளி",
   description:
-    "Aram Tamil School — a branch of the California Tamil Academy. Information about classes, teachers, events, and announcements for our students and staff.",
+    "Aram Tamil School, a volunteer-run branch of the International Tamil Academy in Mountain House, CA. Tamil classes TK–8, HSCP world-language credit, announcements, calendar and contacts.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${notoTamil.variable} antialiased`}
+      className={`${mona.variable} ${anton.variable} ${anekTamil.variable} ${notoTamil.variable} antialiased`}
     >
-      <body className="flex min-h-screen flex-col bg-gradient-to-br from-white via-sky-50 to-sky-200">
-        <Navbar />
+      <body>
+        <SmoothScroll />
         {children}
       </body>
     </html>
