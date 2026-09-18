@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { photos, school } from "../_data/school";
-import Highlight from "./Highlight";
+import SectionTitle from "./SectionTitle";
 
 /** Lando's store callout → enrollment. */
 export default function EnrollCallout() {
@@ -13,11 +13,7 @@ export default function EnrollCallout() {
             <p className="eyebrow">2026 – 27</p>
           </div>
           <div>
-            <p lang="ta" className="font-tamil text-3xl font-extrabold">சேர்க்கை திறந்துள்ளது</p>
-            <h2 className="mt-2 text-[clamp(3rem,7vw,6.5rem)] leading-[0.88] font-black tracking-tight uppercase">
-              <Highlight color="var(--color-ink)" className="block">Join the</Highlight>
-              <Highlight color="var(--color-ink)" delay={120} className="block">family</Highlight>
-            </h2>
+            <SectionTitle ta={["சேர்க்கை", "திறந்துள்ளது"]} en="Enrollment is open · join the family" wipe="var(--color-ink)" />
             <p className="mt-6 max-w-sm text-lg">
               Classes meet at {school.location}. New families are welcome at every grade level.
             </p>

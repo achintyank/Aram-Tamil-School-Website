@@ -111,11 +111,11 @@ export default function Nav() {
                       tabIndex={open ? 0 : -1}
                       className="group flex items-baseline justify-between py-3 hover:text-blue"
                     >
-                      <span className="text-4xl font-extrabold tracking-tight uppercase sm:text-6xl">
-                        <Roll text={l.label} />
-                      </span>
-                      <span lang="ta" className="font-tamil text-lg text-paper/50 group-hover:text-blue">
+                      <span lang="ta" className="font-tamil text-4xl leading-[1.25] font-extrabold transition-transform duration-500 group-hover:translate-x-2 sm:text-6xl">
                         {l.ta}
+                      </span>
+                      <span className="text-sm font-bold tracking-wide text-paper/50 uppercase group-hover:text-blue sm:text-lg">
+                        {l.label}
                       </span>
                     </a>
                   </li>

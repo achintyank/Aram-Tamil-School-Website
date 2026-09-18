@@ -107,3 +107,9 @@ export const socials = [
   { href: "#", label: "Instagram" }, // TODO
   { href: "#", label: "YouTube" }, // TODO
 ];
+
+export const siteCredits = [
+  { name: "Achintyan Kaliraj", href: "https://www.linkedin.com/in/achintyan-kaliraj-58577a35b/" },
+  { name: "Surya Bhaskar", href: "https://www.linkedin.com/in/surya-bhaskar-48332a359/" },
+  { name: "Omar Ahmed", href: "https://www.linkedin.com/in/omar-ahmed-55567a3ba/"}
+];

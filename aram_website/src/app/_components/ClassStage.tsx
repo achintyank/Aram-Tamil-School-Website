@@ -35,15 +35,14 @@ export default function ClassStage() {
             {/* darken top and bottom on hover so the white text stays readable over the photo */}
             <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/10 to-ink/65 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
             <div className="relative">
-              <h2 className="leading-[0.82] uppercase">
-                <Highlight from={c.from} color="var(--color-moss)" className="block font-impact text-[clamp(4.5rem,11vw,10rem)]">
-                  {c.top}
-                </Highlight>
-                <Highlight from={c.from} delay={120} color="var(--color-moss)" className="block text-[clamp(4.2rem,10.5vw,9.5rem)] font-black tracking-tighter">
-                  {c.bottom}
+              <h2 lang="ta" className="font-tamil text-[clamp(3.2rem,7.5vw,7rem)] leading-[1.1] font-extrabold tracking-tight">
+                <Highlight from={c.from} color="var(--color-moss)" className="block">
+                  {c.ta}
                 </Highlight>
               </h2>
-              <p lang="ta" className="mt-4 font-tamil text-2xl font-extrabold">{c.ta}</p>
+              <p lang="en" className="mt-2 text-[clamp(1.8rem,3.5vw,3rem)] leading-none font-black tracking-tighter uppercase opacity-70">
+                {c.top} {c.bottom}
+              </p>
             </div>
             <div className="relative flex items-end justify-between gap-6">
               <p className="max-w-xs text-lg leading-snug">{c.body}</p>

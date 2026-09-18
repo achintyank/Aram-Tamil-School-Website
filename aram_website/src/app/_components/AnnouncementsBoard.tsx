@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Announcement } from "../_data/announcements";
 import { isoDate } from "../_data/calendar";
-import Highlight from "./Highlight";
+import SectionTitle from "./SectionTitle";
 
 const REFRESH_SECONDS = 60;
 
@@ -58,13 +58,7 @@ export default function AnnouncementsBoard({ items }: { items: Announcement[] })
     <section id="announcements" className="relative z-10 scroll-mt-4 bg-paper px-4 py-28 sm:px-6">
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="lg:sticky lg:top-24 lg:self-start">
-          <p lang="ta" className="font-tamil text-2xl font-extrabold">அறிவிப்புகள்</p>
-          <h2 className="mt-2 text-[clamp(3rem,7vw,6.5rem)] leading-[0.88] font-black tracking-tight uppercase">
-            <Highlight className="block">What&apos;s</Highlight>
-            <Highlight delay={120} className="block text-blue" color="var(--color-ink)">
-              happening
-            </Highlight>
-          </h2>
+          <SectionTitle ta={["அறிவிப்புகள்"]} en="What's happening" enClassName="text-blue" />
           <p className="mt-6 max-w-sm text-lg text-graphite">
             Celebrations, schedule changes and reminders from the school.
           </p>

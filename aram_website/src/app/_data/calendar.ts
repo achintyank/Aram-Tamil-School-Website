@@ -65,6 +65,14 @@ export const summerBreak = {
   description: "Have a wonderful summer! See you next year.",
 };
 
+/** Short Tamil weekday names, Sunday first (matches Date.getDay()). */
+export const TAMIL_WEEKDAYS = ["ஞாயிறு", "திங்கள்", "செவ்வாய்", "புதன்", "வியாழன்", "வெள்ளி", "சனி"];
+
+/** e.g. "ஞாயிறு, Sep 20" */
+export function tamilDayDate(d: Date) {
+  return `${TAMIL_WEEKDAYS[d.getDay()]}, ${d.toLocaleDateString("en-US", { month: "short", day: "numeric" })}`;
+}
+
 export function isoDate(d: Date) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }

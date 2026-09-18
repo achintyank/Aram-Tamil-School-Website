@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { nextClass, nextHighlight } from "../_data/calendar";
+import { nextClass, nextHighlight, tamilDayDate, TAMIL_WEEKDAYS } from "../_data/calendar";
 import { school, timings } from "../_data/school";
 import Highlight from "./Highlight";
 import Kolam from "./Kolam";
@@ -50,8 +50,8 @@ export default function Hero() {
         <div className="relative flex flex-col gap-3 px-3 pt-9 pb-3">
           <Highlight className="eyebrow self-start" color="#ffb000">Next class</Highlight>
           <div>
-            <p className="text-2xl leading-none font-extrabold uppercase">
-              {next ? next.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) : "Sunday"}
+            <p lang="ta" className="font-tamil text-2xl leading-tight font-extrabold">
+              {next ? tamilDayDate(next) : TAMIL_WEEKDAYS[0]}
             </p>
             <p className="mt-2 font-mono text-sm tabular-nums">
               {now ? `${dd}d ${pad(hh)}:${pad(mm)}:${pad(ss)}` : "—"}
@@ -85,9 +85,12 @@ export default function Hero() {
         <p
           lang="ta"
           aria-hidden
-          className="font-tamil text-[min(26vw,38svh)] leading-[0.95] font-extrabold tracking-tight text-paper"
+          className="font-tamil text-[min(24vw,30svh)] leading-[0.95] font-extrabold tracking-tight text-paper"
         >
           அறம்
+        </p>
+        <p lang="ta" aria-hidden className="font-tamil text-[min(8.5vw,10svh)] leading-[1.15] font-extrabold tracking-tight text-paper">
+          தமிழ்ப் பள்ளி
         </p>
         <div className="mt-3 flex flex-wrap items-end justify-between gap-2 border-t border-paper/60 pt-3">
           <Highlight as="p" color="#ff2bd6" className="text-xl font-extrabold uppercase sm:text-3xl">

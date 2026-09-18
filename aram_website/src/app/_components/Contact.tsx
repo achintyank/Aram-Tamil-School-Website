@@ -1,5 +1,5 @@
 import { contacts, school, socials, timings } from "../_data/school";
-import Highlight from "./Highlight";
+import SectionTitle from "./SectionTitle";
 import Roll from "./Roll";
 
 /** Location, timings and who to reach — Lando's socials callout as a contact wall. */
@@ -8,13 +8,7 @@ export default function Contact() {
     <section id="contact" className="relative z-10 bg-paper px-4 py-28 sm:px-6">
       <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
         <div>
-          <p lang="ta" className="font-tamil text-2xl font-extrabold">தொடர்பு</p>
-          <h2 className="mt-2 text-[clamp(3rem,7vw,6.5rem)] leading-[0.88] font-black tracking-tight uppercase">
-            <Highlight className="block">Come say</Highlight>
-            <Highlight delay={120} lang="ta" className="block font-tamil text-blue normal-case" color="var(--color-ink)">
-              வணக்கம்
-            </Highlight>
-          </h2>
+          <SectionTitle ta={["தொடர்பு", { text: "வணக்கம்!", className: "text-blue" }]} en="Contact · come say vanakkam" enClassName="text-graphite" />
           <p className="mt-6 max-w-sm text-lg text-graphite">
             Questions about classes, enrollment or volunteering? Reach out, or just stop by on a Sunday.
           </p>

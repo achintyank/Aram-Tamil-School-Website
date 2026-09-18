@@ -6,8 +6,8 @@ import {
   regularFeatures,
 } from "../_data/school";
 import GradeSteps from "./GradeSteps";
-import Highlight from "./Highlight";
-import SyllabusTag from "./SyllabusTag";
+import SectionTitle from "./SectionTitle";
+import SyllabusTag, { SyllabusHint, SyllabusLink } from "./SyllabusTag";
 
 function Features({ items }: { items: { title: string; body: string }[] }) {
   return (
@@ -40,13 +40,7 @@ export default function Structure() {
     <section id="structure" className="relative z-10 rounded-[2rem] bg-moss px-4 py-24 text-paper sm:px-6">
       <div className="grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-end">
         <div>
-          <p lang="ta" className="font-tamil text-2xl font-extrabold text-blue-soft">வகுப்புகள்</p>
-          <h2 className="mt-2 text-[clamp(2.6rem,6vw,5.5rem)] leading-[0.9] font-black tracking-tight uppercase">
-            <Highlight className="block">First letters</Highlight>
-            <Highlight delay={120} className="block text-blue-soft" color="var(--color-paper)">
-              to high school credit
-            </Highlight>
-          </h2>
+          <SectionTitle ta={["வகுப்புகள்"]} en="First letters to high school credit" enClassName="text-blue-soft" />
         </div>
         <p className="max-w-md text-lg text-paper/70 md:justify-self-end">
           Two tracks under one school. Young children build Tamil fundamentals in grade-level classes; high
@@ -90,15 +84,18 @@ export default function Structure() {
           title="HSCP Tamil 1 – 4"
           body="A four-level world-language program starting at grade 7 that satisfies high-school world-language requirements and counts toward GPA on the public-school transcript."
         />
-        <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <SyllabusHint noun="level" />
+        <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {hscpLevels.map((l) => (
-            <li key={l.n} className="group flex min-h-72 flex-col justify-between rounded-2xl bg-paper p-5 text-ink transition-colors duration-300 hover:bg-blue hover:text-paper">
-              <div className="flex items-start justify-between">
-                <p className="eyebrow">HSCP Tamil</p>
-                <SyllabusTag file={l.file} />
-              </div>
-              <p className="font-impact text-[9rem] leading-[0.8] transition-transform duration-500 group-hover:-translate-y-2">{l.n}</p>
-              <p className="text-sm font-bold uppercase">{l.sub}</p>
+            <li key={l.n}>
+              <SyllabusLink file={l.file} label={`HSCP Tamil ${l.n}`} className="group flex h-full min-h-72 flex-col justify-between rounded-2xl bg-paper p-5 text-ink transition-colors duration-300 hover:bg-blue hover:text-paper">
+                <div className="flex items-start justify-between">
+                  <p className="eyebrow">HSCP Tamil</p>
+                  <SyllabusTag file={l.file} />
+                </div>
+                <p className="font-impact text-[9rem] leading-[0.8] transition-transform duration-500 group-hover:-translate-y-2">{l.n}</p>
+                <p className="text-sm font-bold uppercase">{l.sub}</p>
+              </SyllabusLink>
             </li>
           ))}
         </ol>

@@ -11,8 +11,9 @@ import Nav from "./_components/Nav";
 import PhotoTrack from "./_components/PhotoTrack";
 import Statement from "./_components/Statement";
 import Structure from "./_components/Structure";
+import { kuralOfTheDay } from "./_data/kural";
 
-// Announcements come from a Google Sheet; re-check it at most once a minute.
+// Announcements come from a Google Sheet and the kural changes daily; re-render at most once a minute.
 export const revalidate = 60;
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
         {/* hero stays pinned while the Kural panel slides over it */}
         <div className="relative">
           <Hero />
-          <Kural />
+          <Kural kural={kuralOfTheDay()} />
         </div>
         <Statement />
         <Announcements />

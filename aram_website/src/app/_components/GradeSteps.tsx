@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { regularLevels } from "../_data/school";
-import SyllabusTag from "./SyllabusTag";
+import SyllabusTag, { SyllabusHint, SyllabusLink } from "./SyllabusTag";
 
 const GROUPS = [
   { name: "Early foundations", span: 2 },
@@ -37,9 +37,10 @@ export default function GradeSteps() {
   const n = regularLevels.length;
 
   return (
-    <div ref={root} className="mt-10">
+    <div ref={root}>
+      <SyllabusHint noun="grade" />
       {/* desktop / tablet: staircase */}
-      <ol className="hidden h-[34rem] grid-cols-10 items-end gap-2 md:grid">
+      <ol className="mt-6 hidden h-[34rem] grid-cols-10 items-end gap-2 md:grid">
         {regularLevels.map((l, i) => (
           <li
             key={l.label}
@@ -50,7 +51,7 @@ export default function GradeSteps() {
               transitionDelay: `${i * 70}ms`,
             }}
           >
-            <div className="group flex h-full flex-col justify-between rounded-t-2xl border-t-2 border-blue-soft bg-moss-2 p-3 transition-colors duration-300 hover:bg-blue lg:p-4">
+            <SyllabusLink file={l.file} label={l.label} className="group flex h-full flex-col justify-between rounded-t-2xl border-t-2 border-blue-soft bg-moss-2 p-3 transition-colors duration-300 hover:bg-blue lg:p-4">
               <div>
                 <p className="font-impact text-5xl leading-[0.9] lg:text-6xl">
                   <span className="sr-only">{l.label}</span>
@@ -59,7 +60,7 @@ export default function GradeSteps() {
                 <p className="eyebrow mt-2 text-paper/60 group-hover:text-paper">{caption(l.label)}</p>
               </div>
               <SyllabusTag file={l.file} compact />
-            </div>
+            </SyllabusLink>
           </li>
         ))}
       </ol>
@@ -72,17 +73,19 @@ export default function GradeSteps() {
       </div>
 
       {/* phones: bars that lengthen with each grade */}
-      <ol className="space-y-2 md:hidden">
+      <ol className="mt-6 space-y-2 md:hidden">
         {regularLevels.map((l, i) => (
-          <li key={l.label} className="flex items-center gap-3">
-            <div
-              className="flex h-14 shrink-0 items-center justify-between rounded-r-xl border-l-2 border-blue-soft bg-moss-2 pr-3 pl-3 transition-[width] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{ width: shown ? `${34 + (i * 40) / (n - 1)}%` : "0%", transitionDelay: `${i * 60}ms` }}
-            >
-              <span className="font-impact text-3xl leading-none">{short(l.label)}</span>
-              <span className="eyebrow truncate pl-2 text-paper/60">{caption(l.label)}</span>
-            </div>
-            <SyllabusTag file={l.file} compact />
+          <li key={l.label}>
+            <SyllabusLink file={l.file} label={l.label} className="flex items-center gap-3">
+              <div
+                className="flex h-14 shrink-0 items-center justify-between rounded-r-xl border-l-2 border-blue-soft bg-moss-2 pr-3 pl-3 transition-[width] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                style={{ width: shown ? `${34 + (i * 40) / (n - 1)}%` : "0%", transitionDelay: `${i * 60}ms` }}
+              >
+                <span className="font-impact text-3xl leading-none">{short(l.label)}</span>
+                <span className="eyebrow truncate pl-2 text-paper/60">{caption(l.label)}</span>
+              </div>
+              <SyllabusTag file={l.file} compact />
+            </SyllabusLink>
           </li>
         ))}
       </ol>

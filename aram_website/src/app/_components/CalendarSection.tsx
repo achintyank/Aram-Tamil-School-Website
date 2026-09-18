@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { buildTimeline, isoDate, SCHOOL_YEAR_END, SCHOOL_YEAR_START, type CalendarEvent } from "../_data/calendar";
 import { timings } from "../_data/school";
-import Highlight from "./Highlight";
+import SectionTitle from "./SectionTitle";
 
 const legend = [
   { label: "Class day", cls: "bg-paper/25" },
@@ -114,13 +114,12 @@ export default function CalendarSection() {
     <section id="calendar" className="relative z-10 overflow-hidden rounded-[2rem] bg-ink py-24 text-paper">
       <div className="grid gap-8 px-4 sm:px-6 md:grid-cols-[1.2fr_1fr] md:items-end">
         <div>
-          <p lang="ta" className="font-tamil text-2xl font-extrabold text-blue">ஆண்டு நாட்காட்டி</p>
-          <h2 className="mt-2 text-[clamp(3rem,7vw,6.5rem)] leading-[0.88] font-black tracking-tight uppercase">
-            <Highlight className="block">The year</Highlight>
-            <Highlight delay={120} className="block text-blue" color="var(--color-paper)">
-              {yearLabel}
-            </Highlight>
-          </h2>
+          <SectionTitle
+            ta={["ஆண்டு நாட்காட்டி", { text: yearLabel, className: "font-sans font-black text-blue" }]}
+            en="The year"
+            enClassName="text-paper/60"
+            wipe="var(--color-blue)"
+          />
         </div>
         <div className="md:justify-self-end">
           <p className="max-w-sm text-lg text-paper/70">

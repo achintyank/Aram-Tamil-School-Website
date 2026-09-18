@@ -1,4 +1,4 @@
-import { navLinks, school, socials } from "../_data/school";
+import { navLinks, school, siteCredits, socials } from "../_data/school";
 import Roll from "./Roll";
 
 export default function Footer() {
@@ -56,6 +56,17 @@ export default function Footer() {
 
         <div className="mt-6 flex flex-wrap justify-between gap-2 border-t border-paper/15 pt-4 text-xs text-paper/50">
           <p>© {new Date().getFullYear()} {school.nameEn} · a branch of the {school.parent}</p>
+          <p>
+            {"Website made by "}
+            {siteCredits.map((c, i) => (
+              <span key={c.name}>
+                {i > 0 && " & "}
+                <a href={c.href} target="_blank" rel="noreferrer" className="text-paper underline decoration-blue decoration-2 underline-offset-4 transition-colors hover:text-blue">
+                  {c.name}
+                </a>
+              </span>
+            ))}
+          </p>
           <p lang="ta" className="font-tamil">{school.nameTa}</p>
         </div>
       </div>
